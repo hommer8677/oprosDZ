@@ -12,11 +12,6 @@ HOMMER_ID=int(os.getenv("HOMMER_ID"))
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
 
-class UserAnsw:
-    def __init__(self):
-        self.photo = null
-        self.geo = null
-
 @dp.message(CommandStart())
 async def startInfo(message: types.Message):
     user = str(message.from_user.id)
@@ -46,7 +41,7 @@ async def helloFriend(message: types.Message):
     if user not in data.keys():
         data[user] = {
             "photo":photo_file_id,
-            "geo":'null'
+            "geo":caption
         }
     else: 
         if data[user]["photo"] != 'null' and data[user]["geo"] != 'null': 
